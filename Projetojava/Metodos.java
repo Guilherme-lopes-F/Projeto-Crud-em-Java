@@ -49,6 +49,62 @@ public class Metodos {
             }
           }
         }
-        
+
+    // OBS: Update está pronto (Juan)
+    static void atualizarFuncionario() {
+        System.out.println("Bem vindo, Havanna! Quem você quer atualizar?\n");
+
+        if (list.isEmpty()) {
+            System.out.println("Não há funcionários cadastrados para atualizar.");
+            return;
+        }
+
+        System.out.println("Digite o código do funcionário que você deseja atualizar");
+        int codigoBusca = sc.nextInt();
+        sc.nextLine(); // Consumir a nova linha após nextInt()
+
+        Funcionarios funcionarioParaAtualizar = null;
+        boolean encontrado = false;
+
+        for (Funcionarios f : list) {
+            if (f.getCodigo() == codigoBusca) {
+                funcionarioParaAtualizar = f;
+                encontrado = true;
+                break;
+            }
+        }
+
+        if (encontrado) {
+            System.out.println("Funcionário encontrado: " + funcionarioParaAtualizar.getNome());
+            System.out.println("Insira os novos dados do escra- ..quero dizer.. Funcionário:");
+
+            System.out.print("Novo nome: ");
+            String novoNome = sc.nextLine();
+            funcionarioParaAtualizar.setNome(novoNome);
+
+            System.out.print("Nova idade: ");
+            int novaIdade = sc.nextInt();
+            sc.nextLine();
+            funcionarioParaAtualizar.setIdade(novaIdade);
+
+            System.out.print("Novo email: ");
+            String novoEmail = sc.nextLine();
+            funcionarioParaAtualizar.setEmail(novoEmail);
+
+            System.out.print("Novo cargo: ");
+            String novoCargo = sc.nextLine();
+            funcionarioParaAtualizar.setCargo(novoCargo);
+
+            System.out.print("Novo salário: ");
+            double novoSalario = sc.nextDouble();
+            sc.nextLine();
+            funcionarioParaAtualizar.setSalario(novoSalario);
+
+            System.out.println("Funcionário atualizado com sucesso!");
+        } else {
+            System.out.println("Funcionário com o código " + codigoBusca + " não encontrado.");
+        }
+    }
     
 }
+
