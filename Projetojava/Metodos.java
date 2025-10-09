@@ -104,7 +104,31 @@ public class Metodos {
         } else {
             System.out.println("Funcionário com o código " + codigoBusca + " não encontrado.");
         }
+
+        // Delete feito por Tomé
+        static void deletarFuncionario() {
+        System.out.println("Bem vinda, Havanna! Quem você quer demitir/expulsar hoje?\n");
+
+        if (list.isEmpty()) {
+            System.out.println("Não há funcionários cadastrados para deletar.");
+            return;
+        }
+
+        System.out.println("Digite o código do funcionário que você deseja deletar:");
+        int codigoBusca = sc.nextInt();
+        sc.nextLine();
+
+        boolean removido = false;
+
+        removido = list.removeIf(f -> f.getCodigo() == codigoBusca);
+
+        if (removido) {
+            System.out.println("Funcionário removido com sucesso! Espero que ele não processe a empresa.");
+        } else {
+            System.out.println("Nenhum funcionário encontrado com o código " + codigoBusca + ".");
+        }
     }
     
 }
+
 
