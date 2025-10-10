@@ -11,7 +11,7 @@ public class Main{
            System.out.println("O que deseja fazer?" +
            "\n 1.Adicionar novos trabalhadores" +
            "\n 2. Visualizar quem está cadastrado no sistema" +
-           "\n 3. Atualizar ados de um usuário" +
+           "\n 3. Atualizar dados de um usuário" +
            "\n 4. Deletar usuário do sistema  (demissão)" +
            "\n 5. Sair do sistema"
         );
@@ -47,3 +47,4 @@ public class Main{
         } while (escolha != 5);
     }
 }
+
