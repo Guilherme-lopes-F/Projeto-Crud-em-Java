@@ -1,21 +1,22 @@
-class Funcionarios{
+abstract class Funcionarios {
 
-        String nome;
-        int idade;
-        String email;
-        int codigo;
-        String cargo;
-        double salario;
-        
-        
+        private String nome;
+        private int idade;
+        private String email;
+        private int codigo;
+        private String cargo;
+        private double salario;
+        private Endereco endereco;
 
-        public Funcionarios(String nome, int idade, String email, int codigo, String cargo, double salario) {
+        public Funcionarios(String nome, int idade, String email, int codigo, String cargo, double salario, String rua,
+                        String cidade) {
                 this.nome = nome;
                 this.idade = idade;
                 this.email = email;
                 this.codigo = codigo;
                 this.cargo = cargo;
                 this.salario = salario;
+                this.endereco = new Endereco(rua, cidade);
         }
 
         public String getNome() {
@@ -66,19 +67,25 @@ class Funcionarios{
                 this.salario = salario;
         }
 
+        public Endereco getEndereco() {
+                return this.endereco;
+        }
+
+        public void setEndereco(Endereco endereco) {
+                this.endereco = endereco;
+        }
 
         @Override
         public String toString() {
                 return "************************************" +
-                        "\n" +
-                        " nome='" + getNome() + "'" +
-                        ", idade='" + getIdade() + "'" +
-                        ", email='" + getEmail() + "'" +
-                        ", codigo='" + getCodigo() + "'" +
-                        ", cargo='" + getCargo() + "'" +
-                        ", salario='" + getSalario() + "'" +
-                        "***********************************" +
-                        "\n";
+                                "\n" +
+                                " nome='" + getNome() + "'" +
+                                ", idade='" + getIdade() + "'" +
+                                ", email='" + getEmail() + "'" +
+                                ", codigo='" + getCodigo() + "'" +
+                                ", cargo='" + getCargo() + "'" +
+                                ", salario='" + getSalario() + "'" +
+                                ", endereco='" + getEndereco().getRua() + ", " + getEndereco().getCidade() + "'";
         }
 
 }
