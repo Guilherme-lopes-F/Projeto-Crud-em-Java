@@ -4,6 +4,6 @@ Um Crud simples feito em java
 Equipe: João Guilherme Lopes Fonseca, Atur Tomé Xavier e Juan Vila Nova Rojas Moreno
 
 <br>
-Status: Completo
+Status: Em desenvolvimento
 <br>
 Tema: Cadastramento e Funcionários
