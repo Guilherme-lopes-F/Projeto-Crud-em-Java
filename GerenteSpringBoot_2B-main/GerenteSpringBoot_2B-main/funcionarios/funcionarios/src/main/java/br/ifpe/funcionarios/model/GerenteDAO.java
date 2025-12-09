@@ -14,7 +14,8 @@ public class GerenteDAO {
     public GerenteDAO(JdbcClient jdbc) {
         this.jdbc = jdbc;
     }
-//criar
+
+    // criar
     public Integer create(Gerente g) {
         String sql = "INSERT INTO funcionario (nome, idade, email, codigo, cargo, salario, rua, cidade, bonus) " +
                 "VALUES (:nome, :idade, :email, :codigo, 'Gerente', :salario, :rua, :cidade, :bonus)";
@@ -30,33 +31,36 @@ public class GerenteDAO {
                 .param("bonus", g.getBonus())
                 .update();
     }
-//listar todos
-    public List<Gerente> findAll(){
-        String sql ="SELECT * From funcionario where cargo ='Gerente'";
+
+    // listar todos
+    public List<Gerente> findAll() {
+        String sql = "SELECT * From funcionario where cargo ='Gerente'";
         return jdbc.sql(sql).query(this::mapRow);
     }
-//listar por id
-    public Gerente findById(int id){
-        String sql ="Select * From funcionario where id = :id";
+
+    // listar por id
+    public Gerente findById(int id) {
+        String sql = "Select * From funcionario where id = :id";
         return jdbc.sql(sql)
                 .param("id", id)
                 .query(this::mapRow)
                 .single();
     }
-//Atualizar
+
+    // Atualizar
     public Integer update(Gerente g) {
         String sql = """
-            UPDATE funcionario SET
-                nome = :nome,
-                idade = :idade,
-                email = :email,
-                codigo = :codigo,
-                salario = :salario,
-                rua = :rua,
-                cidade = :cidade,
-                bonus = :bonus
-            Where id = :id
-        """;
+                    UPDATE funcionario SET
+                        nome = :nome,
+                        idade = :idade,
+                        email = :email,
+                        codigo = :codigo,
+                        salario = :salario,
+                        rua = :rua,
+                        cidade = :cidade,
+                        bonus = :bonus
+                    Where id = :id
+                """;
         return jdbc.sql(sql)
                 .param("nome", g.getNome())
                 .param("idade", g.getIdade())
@@ -68,14 +72,16 @@ public class GerenteDAO {
                 .param("bonus", g.getBonus())
                 .param("id", g.getId())
                 .update();
-}
-//delete
-    public Integer delete(int id){
-        String sql = "DELETE From funcionario where id = :id";
-        return jdbc.sql(sql).param("id",id).update();
     }
-//Map row ->vai tranformar cda linha do BD em um objeto java
-    private Gerente mapRow(ResultSet r, int rowNum) throws SQLException{
+
+    // delete
+    public Integer delete(int id) {
+        String sql = "DELETE From funcionario where id = :id";
+        return jdbc.sql(sql).param("id", id).update();
+    }
+
+    // Map row ->vai tranformar cda linha do BD em um objeto java
+    private Gerente mapRow(ResultSet r, int rowNum) throws SQLException {
         Gerente g = new Gerente();
 
         g.setId(r.getInt("id"));
@@ -86,7 +92,7 @@ public class GerenteDAO {
         g.setSalario(r.getDouble("salario"));
         g.setBonus(r.getDouble("bonus"));
         g.setCargo("Gerente");
-        
+
         Endereco en = new Endereco();
         en.setRua(r.getString("rua"));
         en.setCidade(r.getString("cidade"));
