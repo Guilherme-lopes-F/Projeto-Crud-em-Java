@@ -37,6 +37,8 @@ CREATE TABLE IF NOT EXISTS funcionario (
     email VARCHAR(255),
     cargo VARCHAR(50),
     salario DOUBLE,
+    linguagem VARCHAR(255);
+    instituicao VARCHAR(255);
     rua VARCHAR(255),
     cidade VARCHAR(255),
     bonus DOUBLE
