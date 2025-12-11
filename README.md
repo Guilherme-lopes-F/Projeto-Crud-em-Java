@@ -39,8 +39,25 @@ CREATE TABLE IF NOT EXISTS funcionario (
     salario DOUBLE,
     rua VARCHAR(255),
     cidade VARCHAR(255),
-    bonus DOUBLE
+    bonus DOUBLE,
+    linguagem VARCHAR(100),
+    instituicao VARCHAR(255)
 );
+
+INSERT INTO funcionario (codigo, nome, idade, email, cargo, salario, rua, cidade, bonus, linguagem, instituicao) VALUES 
+(101, 'Juan Vila Nova', 17, 'paulista69@gmail.com', 'Gerente', 15000.00, 'Rua A, 1000', 'Jaboatão', 5000.00, NULL, NULL),
+(102, 'Artur Tomé', 17, 'astolfo@gmail.com', 'Gerente', 20000.00, 'Rua B, 500', 'Jaboatão', 8000.00, NULL, NULL),
+(103, 'João Guilherme', 17, 'joaog@oticas.com', 'Gerente', 25000.00, 'Rua C, 200', 'Jaboatão', 12000.00, NULL, NULL);
+
+INSERT INTO funcionario (codigo, nome, idade, email, cargo, salario, rua, cidade, bonus, linguagem, instituicao) VALUES 
+(201, 'Ada Lovelace', 30, 'ada@tech.com', 'Desenvolvedor', 8000.00, 'Rua dos Bits, 101', 'Recife', NULL, 'Java', NULL),
+(202, 'Linus Torvalds', 40, 'linus@linux.org', 'Desenvolvedor', 9500.00, 'Av. Open Source, 404', 'Curitiba', NULL, 'C', NULL),
+(203, 'James Gosling', 50, 'james@java.com', 'Desenvolvedor', 12000.00, 'Rua da JVM, 8', 'São Paulo', NULL, 'Java', NULL);
+
+INSERT INTO funcionario (codigo, nome, idade, email, cargo, salario, rua, cidade, bonus, linguagem, instituicao) VALUES 
+(301, 'Peter Parker', 20, 'peter@dailybugle.com', 'Estagiario', 1200.00, 'Rua Queens, 15', 'Nova York', NULL, NULL, 'IFPE'),
+(302, 'Hermione Granger', 19, 'hermione@hogwarts.edu', 'Estagiario', 1300.00, 'Rua Grifinória, 934', 'Londres', NULL, NULL, 'UFPE'),
+(303, 'Miles Morales', 18, 'miles@spider.com', 'Estagiario', 1100.00, 'Rua Brooklyn, 99', 'Nova York', NULL, NULL, 'UFRPE');
 ````
 
 ### 2\. Configuração
