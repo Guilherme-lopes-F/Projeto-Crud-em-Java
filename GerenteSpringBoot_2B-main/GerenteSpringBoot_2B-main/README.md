@@ -1,4 +1,4 @@
-# GerenteSpringBoot_2B
+# FuncionarioSpringBoot_2B
 
 Projeto desenvolvido para a disciplina de **Programação 2 (4º Bimestre)** no IFPE.
 
