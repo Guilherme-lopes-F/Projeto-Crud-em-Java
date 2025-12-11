@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Cadastro realizado</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <main class="container">
+    <div class="card success-card">
+      <h1>Cadastro realizado com sucesso!</h1>
+      <p class="muted">Resumo do cadastro enviado:</p>
+
+      <section class="summary">
+        <ul>
+          <li><strong>Nome:</strong> <span th:text="${funcionario.nome}">Nome</span></li>
+          <li><strong>Cargo:</strong> <span th:text="${funcionario.cargo}">Cargo</span></li>
+          <li><strong>E-mail:</strong> <span th:text="${funcionario.email}">email</span></li>
+          <li><strong>Idade:</strong> <span th:text="${funcionario.idade}">0</span></li>
+          <li><strong>Código:</strong> <span th:text="${funcionario.codigo}">0</span></li>
+          <li><strong>Salário:</strong> R$ <span th:text="${funcionario.salario}">0.00</span></li>
+        </ul>
+
+        <h3>Endereço</h3>
+        <p th:text="${funcionario.endereco.rua} + ', ' + ${funcionario.endereco.cidade}">Rua, Cidade</p>
+
+        <div th:switch="${funcionario.cargo}">
+          <div th:case="'Gerente'">
+            <p><strong>Bônus:</strong> R$ <span th:text="${funcionario.bonus}">0.00</span></p>
+          </div>
+          <div th:case="'Desenvolvedor'">
+            <p><strong>Linguagem:</strong> <span th:text="${funcionario.linguagemPrincipal}">Java</span></p>
+          </div>
+          <div th:case="'Estagiario'">
+            <p><strong>Instituição:</strong> <span th:text="${funcionario.instituicaoEnsino}">IFPE</span></p>
+          </div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <a th:href="@{/cadastro}" class="btn neutral">Cadastrar outro</a>
+        <a th:href="@{/home}" class="btn">Início</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

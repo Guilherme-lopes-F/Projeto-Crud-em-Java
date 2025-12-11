@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Lista de Gerentes</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <main class="container">
+    <header class="card header-card">
+      <h1>Gerentes Cadastrados</h1>
+      <a th:href="@{/}" class="btn neutral small">Voltar ao Início</a>
+    </header>
+
+    <!-- Filtro de Busca  -->
+    <div class="card">
+        <form th:action="@{/gerentes}" method="get" class="grid" style="grid-template-columns: 1fr auto;">
+            <input type="text" name="nome" placeholder="Buscar por nome..." th:value="${busca}" />
+            <button type="submit" class="btn primary">Buscar</button>
+        </form>
+    </div>
+
+    <!-- Tabela de Resultados -->
+    <div class="card">
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr style="text-align: left; border-bottom: 2px solid #eee;">
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Salário</th>
+                <th>Bônus</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="g : ${lista}" style="border-bottom: 1px solid #eee;">
+                <td th:text="${g.nome}">Nome</td>
+                <td th:text="${g.email}">Email</td>
+                <td th:text="${g.salario}">0.00</td>
+                <td th:text="${g.bonus}">0.00</td>
+                <td>
+                    <!-- Botões de Update e Delete  -->
+                    <a th:href="@{/gerentes/editar/{id}(id=${g.id})}" class="btn neutral" style="padding: 5px 10px;">Editar</a>
+                    <a th:href="@{/gerentes/remover/{id}(id=${g.id})}" class="btn" style="padding: 5px 10px; background-color: #fee2e2; color: #991b1b;" onclick="return confirm('Tem certeza?')">Excluir</a>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(lista)}">
+                <td colspan="5" style="text-align: center; padding: 20px;">Nenhum gerente encontrado.</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Lista de Estagiários</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <main class="container">
+    <header class="card header-card">
+      <h1>Estagiários</h1>
+      <a th:href="@{/}" class="btn neutral small">Voltar ao Início</a>
+    </header>
+
+    <div class="card">
+        <form th:action="@{/estagiarios}" method="get" class="grid" style="grid-template-columns: 1fr auto;">
+            <input type="text" name="nome" placeholder="Buscar estagiário..." th:value="${busca}" />
+            <button type="submit" class="btn primary">Buscar</button>
+        </form>
+    </div>
+
+    <div class="card">
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr style="text-align: left; border-bottom: 2px solid #eee;">
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Instituição</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="e : ${lista}" style="border-bottom: 1px solid #eee;">
+                <td th:text="${e.nome}">Nome</td>
+                <td th:text="${e.email}">Email</td>
+                <td th:text="${e.instituicaoEnsino}">IFPE</td>
+                <td>
+                    <a th:href="@{/estagiarios/editar/{id}(id=${e.id})}" class="btn neutral" style="padding: 5px 10px;">Editar</a>
+                    <a th:href="@{/estagiarios/remover/{id}(id=${e.id})}" class="btn" style="padding: 5px 10px; background-color: #fee2e2; color: #991b1b;" onclick="return confirm('Tem certeza?')">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

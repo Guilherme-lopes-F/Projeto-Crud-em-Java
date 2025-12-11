@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Sistema de Funcionários</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <main class="container">
+    <header class="card header-card" style="text-align: center;">
+      <h1>Sistema de Gestão</h1>
+      <p class="muted">Selecione uma opção abaixo</p>
+    </header>
+
+    <div class="grid">
+        <a th:href="@{/cadastro}" class="card" style="text-decoration: none; color: inherit; text-align: center; padding: 40px;">
+            <h2 style="color: var(--accent);">Cadastrar Novo</h2>
+            <p class="muted">Adicionar um novo funcionário ao sistema</p>
+        </a>
+
+        <a th:href="@{/gerentes}" class="card" style="text-decoration: none; color: inherit; text-align: center; padding: 40px;">
+            <h2>Gerentes</h2>
+            <p class="muted">Listar, buscar e editar gerentes</p>
+        </a>
+
+        <a th:href="@{/desenvolvedores}" class="card" style="text-decoration: none; color: inherit; text-align: center; padding: 40px;">
+            <h2>Desenvolvedores</h2>
+            <p class="muted">Listar, buscar e editar devs</p>
+        </a>
+
+        <a th:href="@{/estagiarios}" class="card" style="text-decoration: none; color: inherit; text-align: center; padding: 40px;">
+            <h2>Estagiários</h2>
+            <p class="muted">Listar, buscar e editar estagiários</p>
+        </a>
+    </div>
+  </main>
+</body>
+</html>
